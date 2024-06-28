@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lazy Load</title>
+    <style>
+        .hidden-load {
+            visibility: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div class="hidden-load" style="height: 150px; background-color: lightblue; display: flex;">Styled Div</div>
+    <div class="hidden-load" style="height: 150px; background-color: blue; display: flex;">Styled Div</div>
+    <div class="hidden-load" style="height: 150px; background-color: black; display: flex;">Styled Div</div>
+    <div class="hidden-load" style="height: 150px; background-color:brown; display: flex;">Styled Div</div>
+    <div class="hidden-load" style="height: 150px; background-color: yellow; display: flex;">Styled Div</div>
+    <div class="hidden-load" style="height: 150px; background-color: greenyellow; display: flex;">Styled Div</div>
+    <div class="hidden-load" style="height: 150px; background-color: greenyellow; display: flex;">Styled Div</div>
+    <div class="hidden-load" style="height: 150px; background-color: red; display: flex;">Styled Div</div>
+    <div class="hidden-load" style="height: 150px; background-color: rebeccapurple; display: flex;">Styled Div</div>
+    <div class="hidden-load" style="height: 150px; background-color: rosybrown; display: flex;">Styled Div</div>
+    <div class="hidden-load" style="height: 150px; background-color: blue; display: flex;">Styled Div</div>
+    <div class="hidden-load" style="height: 150px; background-color: blueviolet; display: flex;">Styled Div</div>
+    <div class="hidden-load" style="height: 150px; background-color: aqua; display: flex;">Styled Div</div>
+    <div class="hidden-load" style="height: 150px; background-color: wheat; display: flex;">Styled Div</div>
+    <div class="hidden-load" style="height: 150px; background-color: rosybrown; display: flex;">Styled Div</div>
+    <div class="hidden-load" style="height: 150px; background-color: tomato; display: flex;">Styled Div</div>
+    <div class="hidden-load" style="height: 150px; background-color: indigo; display: flex;">Styled Div</div>
+    <div class="hidden-load" style="height: 150px; background-color: orange; display: flex;">Styled Div</div>
+    <div class="hidden-load" style="height: 150px; background-color: palegreen; display: flex;">Styled Div</div>
+    <div class="hidden-load" style="height: 150px; background-color: lawngreen; display: flex;">Styled Div</div>
+    <div class="hidden-load" style="height: 150px; background-color: maroon; display: flex;">Styled Div</div>
+
+    <script>
+
+      let wih = window.innerHeight
+      let i = 0
+
+      //total div height
+      let tdh = 0
+      let divs = document.querySelectorAll(".hidden-load")
+
+      lazyLoop()
+      function lazyLoop(){
+        const cya = window.pageYOffset
+  
+        while ((wih + cya) >= tdh ){
+          divs[i].classList.remove('hidden-load')
+          tdh += divs[i].offsetHeight;
+          i++
+          console.log("🚀 ~ file: test.html:95 ~ window.addEventListener ~ wih + cya:", wih + cya)
+          console.log("🚀 ~ file: test.html:97 ~ window.addEventListener ~ tdh:", tdh)
+          console.log("🚀 ~ file: test.html:54 ~ window.addEventListener ~ divs[i].offsetHeight:", divs[i].offsetHeight)
+          console.log("🚀 ~ file: test.html:100 ~ window.addEventListener ~ i:", i)
+        } 
+      }
+
+      window.addEventListener('scroll', function() {
+          lazyLoop()
+      });
+
+  </script>
+</body>
+</html>
